@@ -35,6 +35,6 @@ An Ingress resource is created to expose the application to the outside world. B
 
 Finally, Kubeshark is installed to analyze network traffic within the Minikube cluster. You can monitor Kubeshark while sending multiple requests to the host domain (e.g., foo.com) to observe how the Nginx load balancer distributes traffic in real-time.
 
-![Kubeshark traffic monitoring](./kubeshark.png)
+![Kubeshark traffic monitoring](./assets/kubeshark.png)
 
 
