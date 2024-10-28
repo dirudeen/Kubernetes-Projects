@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  firstname: hadiru
+  lastname: colley
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: app-cm
