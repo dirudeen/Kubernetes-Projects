@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: bun-app
+  name: bun-app
+spec:
+  containers:
+  - image: dirudeen/bun-app:v1
+    name: bun-app
+    ports:
+      - name: http
+        containerPort: 3000
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+  serviceAccountName: my-service-account
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: bun-app-service
+  labels:
+    run: bun-app
+spec:
+  selector:
+    run: bun-app
+  ports:
+    - name: http
+      port: 80        # Port to expose
+      targetPort: 3000 # Port on the pod
+  type: ClusterIP   # Change to NodePort or LoadBalancer if needed
+
