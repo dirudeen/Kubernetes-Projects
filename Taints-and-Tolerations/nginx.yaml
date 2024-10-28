@@ -2,14 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    run: redis
-  name: redis
+    run: nginx
+  name: nginx
 spec:
   containers:
-  - image: redis:latest
-    name: redis
+  - image: nginx:latest
+    name: nginx
     resources: {}
-  nodeSelector:
-    gpu: "something"
-
-status: {}
+  nodeName: multi-node-cluster-worker
