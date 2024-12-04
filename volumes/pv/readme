@@ -1,0 +1,44 @@
+# Persistent Storage Example Using Local Storage
+
+## Create a persistent volume
+```sh
+touch local-pv.yaml
+kubectl apply -f local-pv.yaml
+```
+
+## Create a persistent volume claim
+```sh
+touch local-pvc.yaml
+kubectl apply -f local-pvc.yaml
+```
+## Create redis pod with pvc
+```sh
+touch local-pod.yaml
+kubectl apply -f local-pod.yaml
+```
+## Create a file in mounted volume
+```sh
+kubectl exec -it pods/redis-pod -- sh
+cd /data/redis
+echo "hello world" > hello.txt
+```
+
+## Delete the pod
+```sh
+kubectl delete pod redis-pod
+``` 
+## provision the pod again to see check if file exits
+```sh
+kubectl apply -f local-pod.yaml
+kubectl exec -it pods/redis-pod -- sh
+cd /data/redis
+cat hello.txt
+```
+tada! file is still there
+
+## cleanup
+```sh
+kubectl delete pods redis-pod
+kubectl delete pvc my-local-pvc
+kubectl delete pv my-local-pv
+```
