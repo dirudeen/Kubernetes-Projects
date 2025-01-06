@@ -1,0 +1,44 @@
+# Helm
+Helm is a package manager for Kubernetes. Helm packages are called charts. A Helm chart can be used to deploy a bundle of resources into a Kubernetes cluster.
+
+## Helm Basics Commands
+
+### Create a new Helm chart
+```sh
+helm create "<chart-name>"
+```
+
+### Install a chart
+```sh
+helm install "<chart-release-name>" "<chart-name>"
+```
+
+### Validate chart against kubeapiserver
+```sh
+helm install --dry-run --debug "<chart-release-name>" "<chart-name>"
+```
+
+### Validate chart without kubeapiserver 
+```sh
+helm template "<chart-name>"
+```
+
+### Check for any errors in your chart
+```sh
+helm lint "<chart-name>"
+```
+
+### Update a chart
+```sh
+helm upgrade "<chart-release-name>" "<chart-name>"
+```
+
+### downgrade a chart to previous version
+```sh
+helm rollback "<chart-release-name>" "<revision>"
+```
+
+### Uninstall a chart
+```sh
+helm uninstall "<chart-release-name>"
+```
