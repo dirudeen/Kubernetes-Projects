@@ -1,7 +1,10 @@
 import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
+import { logger } from "hono/logger";
+
 const app = new Hono();
 
+app.use(logger());
 app.use("/", serveStatic({ path: "./static/index.html" }));
 
 // check if the app is healthy
