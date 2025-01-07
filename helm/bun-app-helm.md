@@ -4,6 +4,8 @@
 
 This project involved deploying a static site using the blazing fast Bun JS runtime, leveraging the power of Helm charts to streamline the deployment and management of the application within the Kubernetes environment.
 
+[Github Project Link](https://github.com/dirudeen/Kubernetes-Projects/tree/main/helm)
+
 
 
 ## 🔧 Key Highlights:
@@ -42,3 +44,8 @@ By harnessing the orchestration power of Kubernetes and the ease of management p
 
 #Kubernetes #Helm #DevOps #CloudComputing #Scalability #WebDevelopment #TechInnovation
 
+![webpage](https://raw.githubusercontent.com/dirudeen/Kubernetes-Projects/refs/heads/main/helm/live-site.png)
+
+![resourses](https://raw.githubusercontent.com/dirudeen/Kubernetes-Projects/refs/heads/main/helm/running-resources.png)
+
+![helm-values](https://raw.githubusercontent.com/dirudeen/Kubernetes-Projects/refs/heads/main/helm/values.png)
