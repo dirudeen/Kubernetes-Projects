@@ -1,0 +1,30 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata: 
+  name: main-rules-alert-config
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  receivers:
+  - name: 'null'
+  - name: dev-team
+    emailConfigs:
+    - sendResolved: false
+      smarthost: smtp.gmail.com:587
+      from: <your email>
+      to: <your email>
+      authUsername: <your email>
+      authIdentity: <your email>
+      authPassword:
+        name: mail-pass
+        key: gmail-pass
+  route:
+    receiver: 'null'
+    repeatInterval: 30m
+    routes:
+    - matchers:
+      - name: alertname
+        value: PodRestartsHigh
+      repeatInterval: 5m
+      receiver: dev-team
